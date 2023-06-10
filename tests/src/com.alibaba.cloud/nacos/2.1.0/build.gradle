@@ -19,11 +19,6 @@ graalvmNative {
         }
         accessFilterFiles.from("conditional-filter.json")
 
-        metadataCopy {
-            mergeWithExisting = false
-            inputTaskNames.add("test")
-            outputDirectories.add("src/test/resources/META-INF/native-image/com.alibaba.cloud/nacos")
-        }
     }
 
     binaries {
