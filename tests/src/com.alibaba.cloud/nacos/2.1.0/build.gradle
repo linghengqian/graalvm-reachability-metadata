@@ -18,13 +18,23 @@ graalvmNative {
             }
         }
         accessFilterFiles.from("conditional-filter.json")
+
+        metadataCopy {
+            mergeWithExisting = false
+            inputTaskNames.add("test")
+            outputDirectories.add("src/test/resources/META-INF/native-image/com.alibaba.cloud/nacos")
+        }
     }
-}
+
+    binaries {
+        test {
+            buildArgs("--enable-url-protocols=http")
+}   }   }
 
 String libraryVersion = tck.testedLibraryVersion.get()
 
 dependencies {
-    testImplementation group: 'com.alibaba.nacos', name: 'nacos-client', version: '2.1.0'
-    testImplementation "com.alibaba.cloud:nacos:$libraryVersion"
+    testImplementation "com.alibaba.nacos:nacos-client:$libraryVersion"
     testImplementation 'org.assertj:assertj-core:3.22.0'
+    testImplementation 'org.awaitility:awaitility:4.2.0'
 }
