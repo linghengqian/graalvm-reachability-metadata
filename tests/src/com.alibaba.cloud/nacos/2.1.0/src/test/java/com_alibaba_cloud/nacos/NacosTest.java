@@ -35,7 +35,7 @@ class NacosTest {
 
     private static String checkNacosServer() {
 
-        return HttpRequest.sendPost(
+        return nacos.HttpRequest.sendPost(
                 "http://localhost:8848/nacos/v1/auth/users/login?message=true",
                 "username=" + username + "&password=" + password
         );
@@ -69,7 +69,7 @@ class NacosTest {
     @Test
     void testAddConfig() {
 
-        String result = HttpRequest.sendPost(
+        String result = nacos.HttpRequest.sendPost(
                 address,
                 "dataId=" + dataIdValue + "&group=" +
                         groupValue + "&content=" + contentValue
@@ -81,7 +81,7 @@ class NacosTest {
     @Test
     void testGetConfig() {
 
-        String result = HttpRequest.sendGet(
+        String result = nacos.HttpRequest.sendGet(
                 address,
                 "dataId=" + dataIdValue + "&group=" +
                         groupValue

@@ -24,7 +24,9 @@ graalvmNative {
     binaries {
         test {
             buildArgs("--enable-url-protocols=http")
-}   }   }
+        }
+    }
+}
 
 String libraryVersion = tck.testedLibraryVersion.get()
 
